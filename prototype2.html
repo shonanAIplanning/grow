@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow | 藤沢市の隠れ家自動車整備工場</title>
+<style>
+    :root {
+        /* 配色システムをロゴに合わせて更新 */
+        --bg-color: #0d0d0f; /* 漆黒（ベース） */
+        --logo-red: #c00000; /* ロゴの赤（アクセント） */
+        --text-main: #e0e0e0; /* メインテキスト */
+        --text-sub: #888; /* サブテキスト */
+        --border-color: #2a2a2e; /* 境界線 */
+        --metallic-silver: linear-gradient(135deg, #7b818a 0%, #ffffff 50%, #7b818a 100%);
+    }
+    body {
+        margin: 0;
+        font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.8;
+    }
+    /* シルバーメタリックテキスト（見出し用） */
+    .metallic-text {
+        background: var(--metallic-silver);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent; /* 非Webkit環境用 */
+    }
+    .container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        padding: 120px 0 80px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+    /* ロゴ（赤背景にシルバーテキスト）を再現 */
+    h1 {
+        font-size: 3.5rem;
+        margin: 0;
+        letter-spacing: 0.15em;
+        display: inline-block; /* 背景をテキストサイズに合わせる */
+        padding: 15px 40px;
+        background-color: var(--logo-red);
+        border: 2px solid var(--text-sub); /* シルバーの縁取り */
+        box-shadow: 0 0 15px rgba(255,255,255,0.05); /* 微かな輝き */
+    }
+    h1 .logo-text {
+        background: var(--metallic-silver);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent; /* 非Webkit環境用 */
+    }
+    .tagline {
+        font-size: 0.95rem;
+        color: var(--text-sub);
+        margin-top: 30px; /* 余白を調整 */
+        letter-spacing: 0.1em;
+    }
+    section {
+        padding: 80px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        letter-spacing: 0.05em;
+    }
+    .concept-text {
+        font-size: 1.05rem;
+        color: #b0b0b0;
+    }
+    .service-list {
+        list-style: none;
+        padding: 0;
+    }
+    .service-list li {
+        background: #141417;
+        margin-bottom: 15px;
+        padding: 25px;
+        border-left: 2px solid var(--logo-red); /* ボーダーを赤に変更 */
+    }
+    .service-title {
+        display: block;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: #fff;
+    }
+    .access-info {
+        background: #1a1a1e;
+        padding: 30px;
+        text-align: center;
+    }
+    /* お問い合わせボタンを赤ベースのメタリックに */
+    .contact-btn {
+        display: inline-block;
+        padding: 18px 50px;
+        margin-top: 30px;
+        background: linear-gradient(135deg, var(--logo-red), #900000);
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid var(--logo-red);
+        letter-spacing: 0.1em;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    .contact-btn:hover {
+        background: linear-gradient(135deg, #d00000, var(--logo-red));
+        border-color: #ee0000;
+        box-shadow: 0 0 15px rgba(204,0,0,0.3);
+    }
+    footer {
+        padding: 40px 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-sub);
+    }
+</style>
+</head>
+<body>
+
+<header class="container">
+    <h1><span class="logo-text">Grow</span></h1>
+    <p class="tagline">藤沢の静寂に佇む、鋼のためのガレージ。</p>
+</header>
+
+<main class="container">
+    <section id="concept">
+        <h2 class="metallic-text">Concept</h2>
+        <p class="concept-text">
+            喧騒から離れた藤沢の片隅で、ひっそりとシャッターを開ける「Grow」。<br>
+            私たちは、大量生産・効率化のサイクルから意図的に距離を置き、一台の車と向き合う静かな時間を何よりも重んじています。<br>
+            金属の冷たい質感の奥にある、確かな鼓動を呼び覚ます。<br>
+            妥協なき技術で、あなたの愛車に本来の輝きと力強さを取り戻します。
+        </p>
+    </section>
+
+    <section id="services">
+        <h2 class="metallic-text">Services</h2>
+        <ul class="service-list">
+            <li>
+                <span class="service-title">General Maintenance</span>
+                日常の点検から重整備まで、ミリ単位の精度で組み上げる確かなメンテナンス。
+            </li>
+            <li>
+                <span class="service-title">Customization</span>
+                オーナーの美学を具現化する、機能美を追求した無駄のないカスタマイズ。
+            </li>
+        </ul>
+    </section>
+
+    <section id="access">
+        <h2 class="metallic-text">Access</h2>
+        <div class="access-info">
+            <p>神奈川県藤沢市 某所</p>
+            <p style="font-size: 0.9rem; color: #888;">
+                ※当店は完全予約制のプライベートガレージです。<br>
+                詳細な所在地は、ご予約をいただいたお客様にのみお伝えしております。
+            </p>
+            <a href="#contact" class="contact-btn">ご予約・ご相談</a>
+        </div>
+    </section>
+</main>
+
+<footer class="container">
+    <p>&copy; 2026 Grow Auto Works. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

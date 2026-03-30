@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow | 藤沢市の隠れ家自動車整備工場</title>
+<style>
+    :root {
+        /* 配色システムを更新 */
+        --bg-color: #050507; /* より深い漆黒（ベース） */
+        --logo-red: #cc0000; /* ロゴの赤（力強さ） */
+        --text-main: #f0f0f0; /* メインテキスト */
+        --text-sub: #a0a0a0; /* サブテキスト */
+        --border-color: #333; /* 境界線（暗く） */
+        /* メタリックグラデーション：赤とシルバーを統合 */
+        --metallic-logo: linear-gradient(135deg, #cc0000 0%, #ffffff 50%, #cc0000 100%);
+        --metallic-silver: linear-gradient(135deg, #7b818a 0%, #ffffff 50%, #7b818a 100%);
+    }
+    body {
+        margin: 0;
+        font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; /* 力強いフォントを優先 */
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.8;
+        /* 背景イメージ：自動車整備を連想させる画像（CSSで配置・処理） */
+        background-image: linear-gradient(rgba(5, 5, 7, 0.93), rgba(5, 5, 7, 0.93)), url('https://images.unsplash.com/photo-1598000302796-f94be69519c7?q=80&w=1600&auto=format&fit=crop'); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* パララックス効果で重厚感を出す */
+    }
+    /* シルバーメタリックテキスト（見出し用） */
+    .metallic-text {
+        background: var(--metallic-silver);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent; /* 非Webkit環境用 */
+    }
+    .container {
+        max-width: 800px; /* 少し広く */
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    header {
+        padding: 160px 0 100px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+    /* ロゴ：ボックスなし、太フォント、G大文字、金属テクスチャ（赤×シルバー） */
+    h1 {
+        font-size: 5rem; /* より大きく力強く */
+        margin: 0;
+        letter-spacing: 0.1em;
+        font-weight: 900; /* 最も太いフォントウェイト */
+        display: inline-block;
+        /* メタリックな赤シルバーテキスト */
+        background: var(--metallic-logo);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent; /* 非Webkit環境用 */
+        text-shadow: 0 0 20px rgba(204, 0, 0, 0.5); /* 赤い輝きを追加 */
+    }
+    .tagline {
+        font-size: 1.1rem;
+        color: var(--text-sub);
+        margin-top: 40px; /* 余白を調整 */
+        letter-spacing: 0.15em;
+        font-weight: bold;
+    }
+    section {
+        padding: 100px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        letter-spacing: 0.1em;
+        font-weight: 800;
+    }
+    .concept-text {
+        font-size: 1.1rem;
+        color: #d0d0d0;
+    }
+    .service-list {
+        list-style: none;
+        padding: 0;
+    }
+    .service-list li {
+        background: #0f0f11;
+        margin-bottom: 20px;
+        padding: 30px;
+        border-left: 4px solid var(--logo-red); /* ボーダーを太く、赤に */
+    }
+    .service-title {
+        display: block;
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    .access-info {
+        background: #141416;
+        padding: 40px;
+        text-align: center;
+    }
+    /* お問い合わせボタンを赤ベースのメタリックに */
+    .contact-btn {
+        display: inline-block;
+        padding: 20px 60px;
+        margin-top: 40px;
+        background: linear-gradient(135deg, var(--logo-red), #900000);
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid var(--logo-red);
+        letter-spacing: 0.15em;
+        font-weight: 900;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+    .contact-btn:hover {
+        background: linear-gradient(135deg, #d00000, var(--logo-red));
+        border-color: #ee0000;
+        box-shadow: 0 0 20px rgba(204,0,0,0.5);
+    }
+    footer {
+        padding: 60px 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-sub);
+    }
+</style>
+</head>
+<body>
+
+<header class="container">
+    <h1>Grow</h1>
+    <p class="tagline">藤沢の静寂に佇む、鋼のためのガレージ。</p>
+</header>
+
+<main class="container">
+    <section id="concept">
+        <h2 class="metallic-text">Concept</h2>
+        <p class="concept-text">
+            喧騒から離れた藤沢の片隅で、ひっそりとシャッターを開ける「Grow」。<br>
+            私たちは、大量生産・効率化のサイクルから意図的に距離を置き、一台の車と向き合う静かな時間を何よりも重んじています。<br>
+            金属の冷たい質感の奥にある、確かな鼓動を呼び覚ます。<br>
+            妥協なき技術で、あなたの愛車に本来の輝きと力強さを取り戻します。
+        </p>
+    </section>
+
+    <section id="services">
+        <h2 class="metallic-text">Services</h2>
+        <ul class="service-list">
+            <li>
+                <span class="service-title">General Maintenance</span>
+                日常の点検から重整備まで、ミリ単位の精度で組み上げる確かなメンテナンス。
+            </li>
+            <li>
+                <span class="service-title">Customization</span>
+                オーナーの美学を具現化する、機能美を追求した無駄のないカスタマイズ。
+            </li>
+        </ul>
+    </section>
+
+    <section id="access">
+        <h2 class="metallic-text">Access</h2>
+        <div class="access-info">
+            <p>神奈川県藤沢市 某所</p>
+            <p style="font-size: 0.9rem; color: #888; margin-top: 15px;">
+                ※当店は完全予約制のプライベートガレージです。<br>
+                詳細な所在地は、ご予約をいただいたお客様にのみお伝えしております。
+            </p>
+            <a href="#contact" class="contact-btn">ご予約・ご相談</a>
+        </div>
+    </section>
+</main>
+
+<footer class="container">
+    <p>&copy; 2026 Grow Auto Works. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
