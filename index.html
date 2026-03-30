@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow | Cinematic Dark</title>
+<style>
+    :root {
+        --bg: #000;
+        --text: #eee;
+        --logo-red: #cc0000;
+    }
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+        overflow-x: hidden;
+    }
+    /* レターボックス（上下の黒帯） */
+    body::before, body::after {
+        content: '';
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 8vh;
+        background: #000;
+        z-index: 100;
+        pointer-events: none;
+    }
+    body::before { top: 0; }
+    body::after { bottom: 0; }
+
+    /* 背景画像：ファイル名「grow-bg-cinematic.png」をご自身で用意してください */
+    .bg-image {
+        position: fixed;
+        inset: -5%; /* ズーム時の余白 */
+        background: url('grow-bg-cinematic.png') center/cover;
+        animation: slowZoom 15s ease-in-out infinite alternate;
+        filter: brightness(0.4) contrast(1.2);
+        z-index: -2;
+    }
+    @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.05); }
+    }
+
+    .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 3s ease-out;
+        position: relative;
+    }
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ロゴ：HTMLテキスト */
+    .logo {
+        font-size: 9rem;
+        font-weight: 900;
+        margin: 0;
+        color: var(--logo-red);
+        text-shadow: 0 0 40px rgba(204,0,0,0.8);
+        letter-spacing: 0.05em;
+        line-height: 1;
+    }
+    .catch {
+        font-size: 1.2rem;
+        color: #aaa;
+        letter-spacing: 0.3em;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .scroll-down {
+        position: absolute;
+        bottom: 12vh;
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        color: #fff;
+        animation: blink 2s infinite;
+    }
+    @keyframes blink { 50% { opacity: 0.3; } }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    section {
+        position: relative;
+        z-index: 10;
+        background: rgba(0,0,0,0.85); /* 沒入感を高める暗い背景 */
+        padding: 150px 0; /* container側でmargin:autoを使うため左右paddingは0 */
+        text-align: center; /* セクション全体はセンター配置 */
+        backdrop-filter: blur(10px); /* ほのかなぼかし */
+        border-top: 1px solid #222;
+    }
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        letter-spacing: 0.05em;
+        font-weight: 800;
+        background: linear-gradient(135deg, #707070, #fff 50%, #707070);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent; /* Fallback */
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    /* 修正箇所：.concept-text */
+    .concept-text {
+        font-size: 1.1rem;
+        color: #ddd;
+        /* --- 修正追加箇所 --- */
+        text-align: left;       /* テキスト自体は左詰めにする */
+        max-width: 600px;        /* テキストブロックの幅を制限して中央に寄せやすくする（調整可） */
+        margin-left: auto;      /* ブロック全体をセンターへ */
+        margin-right: auto;     /* ブロック全体をセンターへ */
+    }
+
+    .contact-btn {
+        display: inline-block;
+        padding: 20px 60px;
+        margin-top: 50px;
+        background: linear-gradient(135deg, var(--logo-red), #660000);
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid var(--logo-red);
+        letter-spacing: 0.1em;
+        font-weight: 900;
+        font-size: 1.2rem;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    .contact-btn:hover {
+        background: linear-gradient(135deg, #ee0000, var(--logo-red));
+        border-color: #ee0000;
+        box-shadow: 0 0 25px rgba(204,0,0,0.6);
+    }
+    footer {
+        position: relative;
+        z-index: 10;
+        background: rgba(0,0,0,0.85);
+        padding: 60px 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #888;
+        border-top: 1px solid #222;
+    }
+</style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <header class="hero">
+        <h1 class="logo">Grow</h1>
+        <p class="catch">FUJISAWA PRIVATE GARAGE</p>
+        <div class="scroll-down">SCROLL DOWN</div>
+    </header>
+    <main>
+        <section id="concept">
+            <div class="container">
+                <h2>Concept</h2>
+                <p class="concept-text">
+                    喧騒から離れた藤沢の片隅で、ひっそりとシャッターを開ける「Grow」。<br>
+                    私たちは、大量生産・効率化のサイクルから意圖的に距離を置き、一台の車と向き合う静かな時間を何よりも重んじています。<br>
+                    冷徹な鋼に命を吹き込む、妥協なき技術。<br>
+                    あなたの愛車に、本来の輝きと力強さを取り戻します。
+                </p>
+                <a href="#contact" class="contact-btn">ご予約・ご相談</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Grow Auto Works. All rights reserved.</p>
+        </div>
