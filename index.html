@@ -25,7 +25,7 @@
         line-height: 1.8;
     }
 
-    /* レターボックス */
+    /* レターボックス（上下の黒帯） */
     body::before, body::after {
         content: '';
         position: fixed;
@@ -54,29 +54,29 @@
 
     .hero {
         height: 100vh;
+        height: 100svh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        animation: fadeIn 3s ease-out;
+        animation: fadeIn 2s ease-out;
         position: relative;
     }
     @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% { opacity: 0; }
+        100% { opacity: 1; }
     }
 
+    /* === ロゴ画像：配置とクリックエリアの最適化 === */
     .header-image-logo {
         margin: 0;
         padding: 0;
-        z-index: 10;
+        z-index: 110;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-  
-    /* === 画像ロゴ用のCSS（暗→明 ホバー演出調整版） === */
     .header-image-logo a {
         display: flex;
         justify-content: center;
@@ -84,20 +84,12 @@
         text-decoration: none;
         width: 750px;
         max-width: 90vw;
-        
-        /* ★通常時もある程度見えるように上げる */
         opacity: 0.6;
-        /* ★素早く光らせるため秒数を0.3sに短縮 */
         transition: opacity 0.3s ease;
     }
-
-    /* マウスオーバー時のアニメーション */
     .header-image-logo a:hover {
         opacity: 1; 
     }
-
-
-
     .header-image-logo img {
         width: 100%;
         height: auto;
@@ -108,7 +100,7 @@
     @media (max-width: 1024px) { .header-image-logo a { width: 650px; } }
     @media (max-width: 768px) { .header-image-logo a { width: 450px; max-width: 95vw; } }
 
-    /* === PC用サイドメニュー（1024px以上で表示） === */
+    /* === PC用サイドメニュー（1024px以上） === */
     .side-menu {
         position: fixed;
         right: 30px;
@@ -127,12 +119,12 @@
     .side-menu a:hover span { opacity: 1; transform: translateX(0); }
     .side-menu a:hover::after { background: var(--logo-red); box-shadow: 0 0 12px var(--logo-red); transform: scale(1.5); }
 
-    /* === スマホ・タブレット用：ハンバーガーメニュー（1024px以下で有効） === */
+    /* === スマホ用ハンバーガーメニュー（1024px以下） === */
     .hamburger-btn {
-        display: none; /* デフォルト非表示 */
+        display: none;
         position: fixed;
         right: 25px;
-        top: 2.5vh; /* 上のレターボックス内に配置 */
+        top: 2.5vh;
         width: 40px;
         height: 40px;
         background: none;
@@ -143,20 +135,12 @@
         visibility: hidden;
         transition: opacity 0.6s ease, visibility 0.6s ease;
     }
-    .hamburger-btn span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background: #fff;
-        margin: 6px auto;
-        transition: 0.3s;
-    }
-    /* 開いている時の×印アニメーション */
+    .hamburger-btn span { display: block; width: 25px; height: 2px; background: #fff; margin: 6px auto; transition: 0.3s; }
+    .hamburger-btn.is-active { opacity: 1; visibility: visible; }
     .hamburger-btn.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger-btn.is-open span:nth-child(2) { opacity: 0; }
     .hamburger-btn.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* スマホ・タブレット用フルスクリーンメニュー */
     .mobile-nav {
         position: fixed;
         inset: 0;
@@ -173,31 +157,23 @@
     .mobile-nav.is-open { opacity: 1; visibility: visible; }
     .mobile-nav ul { list-style: none; padding: 0; text-align: center; }
     .mobile-nav li { margin: 30px 0; }
-    .mobile-nav a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 1.5rem;
-        letter-spacing: 0.3em;
-        font-weight: 800;
-        transition: color 0.3s;
-    }
-    .mobile-nav a:active { color: var(--logo-red); }
+    .mobile-nav a { text-decoration: none; color: #fff; font-size: 1.5rem; letter-spacing: 0.3em; font-weight: 800; transition: color 0.3s; }
 
-    /* レスポンシブ切り替え */
     @media (max-width: 1024px) {
-        .side-menu { display: none !important; } /* PCメニュー削除 */
-        .hamburger-btn { display: block; } /* ハンバーガー有効 */
-        .hamburger-btn.is-active { opacity: 1; visibility: visible; }
+        .side-menu { display: none !important; }
+        .hamburger-btn { display: block; }
     }
 
-    /* 以下、共通レイアウト設定 */
+    /* レイアウト共通設定 */
     .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
     section { position: relative; z-index: 10; background: rgba(0,0,0,0.85); padding: 120px 0; text-align: center; backdrop-filter: blur(10px); border-top: 1px solid #222; scroll-margin-top: 8vh; }
     h2 { font-size: 2.2rem; margin-bottom: 50px; letter-spacing: 0.05em; font-weight: 800; background: linear-gradient(135deg, #707070, #fff 50%, #707070); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
     .text-block { font-size: 1.1rem; color: #ddd; text-align: left; max-width: 650px; margin-left: auto; margin-right: auto; }
+    
     .profile-box { background: linear-gradient(to right, rgba(204, 0, 0, 0.05), transparent); border-left: 4px solid var(--logo-red); padding: 40px; margin-top: 40px; }
     .profile-box p { margin: 0 0 15px 0; }
     .highlight-text { color: #fff; font-weight: bold; font-size: 1.2rem; }
+
     .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; text-align: left; }
     @media (max-width: 768px) { .service-grid { grid-template-columns: 1fr; } }
     .service-card { background: var(--card-bg); border: 1px solid #222; padding: 40px 30px; transition: all 0.3s ease; }
@@ -205,15 +181,19 @@
     .service-card h3 { color: #fff; font-size: 1.3rem; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; letter-spacing: 0.05em; }
     .service-card h3 span { display: block; font-size: 0.8rem; color: var(--logo-red); margin-bottom: 5px; }
     .service-card p { color: #bbb; font-size: 0.95rem; margin: 0; }
+
     .contact-btn { display: inline-block; padding: 20px 60px; margin-top: 60px; background: linear-gradient(135deg, var(--logo-red), #660000); color: #fff; text-decoration: none; border: 1px solid var(--logo-red); letter-spacing: 0.1em; font-weight: 900; font-size: 1.2rem; border-radius: 4px; transition: all 0.3s ease; }
+    .contact-btn:hover { background: linear-gradient(135deg, #ee0000, var(--logo-red)); border-color: #ee0000; box-shadow: 0 0 25px rgba(204,0,0,0.6); }
+
     footer { position: relative; z-index: 10; background: rgba(0,0,0,0.85); padding: 60px 0; text-align: center; font-size: 0.9rem; color: #888; border-top: 1px solid #222; }
 </style>
 </head>
 <body>
     <div class="bg-image"></div>
+    
     <header id="top" class="hero">
         <h1 class="header-image-logo">
-            <a href="#concept"><img src="grow-header-logo.png" alt="Grow"></a>
+            <a href="#concept"><img src="grow-header-logo.png" alt="Grow - FUJISAWA PRIVATE GARAGE"></a>
         </h1>
     </header>
 
@@ -247,7 +227,7 @@
                 <h2>Concept</h2>
                 <div class="text-block">
                     <p>喧騒から離れた藤沢の片隅で、ひっそりとシャッターを開ける「Grow」。</p>
-                    <p>一台の車と向き合う静かな時間を何よりも重んじています。</p>
+                    <p>大量生産・効率化のサイクルから意図的に距離を置き、一台の車と向き合う静かな時間を何よりも重んじています。<br>冷徹な鋼に命を吹き込む、妥協なき技術。あなたの愛車に、本来の輝きと力強さを取り戻します。</p>
                 </div>
             </div>
         </section>
@@ -256,8 +236,9 @@
             <div class="container">
                 <h2>The Mechanic</h2>
                 <div class="text-block profile-box">
-                    <p class="highlight-text">自動車開発、世界最大級の建機エンジニア、レースメカニックとしての経験。</p>
+                    <p class="highlight-text">自動車会社の開発、世界最大級の建機メーカーのエンジニア、そして様々なレースメカニックとしての経験。</p>
                     <p>これら最前線の現場で培ってきたシビアな眼と技術が、Growの根幹です。</p>
+                    <p>乗用車から、トラック、巨大な建設機械に至るまで。エンジニアの視点で、的確で無駄のないアドバイスと施工をお約束します。</p>
                 </div>
             </div>
         </section>
@@ -267,20 +248,20 @@
                 <h2>Services</h2>
                 <div class="service-grid">
                     <div class="service-card">
-                        <h3><span>Maintenance</span>車検・整備・タイヤ交換</h3>
-                        <p>レース経験を活かした精度の高いセッティング。24インチまで対応。</p>
+                        <h3><span>Maintenance & Tuning</span>車検・整備・タイヤ交換</h3>
+                        <p>レース経験を活かした精度の高いセッティング。24インチまでの大径タイヤ交換、ホイールバランスにも対応します。</p>
                     </div>
                     <div class="service-card">
                         <h3><span>Special Coating</span>ラプターライナー塗装</h3>
-                        <p>強靭な耐久性と無骨な質感を。イギリスUpol社の正規施工。</p>
+                        <p>強靭な耐久性と無骨な質感を。イギリスUpol社の正規「ラプターライナー（高耐久ウレタンコーティング）」塗装を承ります。</p>
                     </div>
                     <div class="service-card">
-                        <h3><span>Premium Oil</span>オイル交換</h3>
-                        <p>WAKO'SやPHILLIPS 66を使用した、性能を極限まで引き出すメンテナンス。</p>
+                        <h3><span>Premium Parts & Oil</span>厳選ケミカル・オイル交換</h3>
+                        <p>WAKO'S製品各種から、高品質オイルメーカー「PHILLIPS 66」を使用したオイル交換、その他各種備品販売を行います。</p>
                     </div>
                     <div class="service-card">
-                        <h3><span>Sales</span>中古車販売・買取</h3>
-                        <p>プロの目で状態を見極めた車両のみを販売。生涯のカーライフをサポート。</p>
+                        <h3><span>Sales & Purchase</span>中古車販売・買取</h3>
+                        <p>プロの目で状態を見極めた中古車の購入サポート、および販売。確かな査定による買取。生涯にわたるカーライフをサポートします。</p>
                     </div>
                 </div>
             </div>
@@ -289,23 +270,34 @@
         <section id="contact">
             <div class="container">
                 <h2>Contact</h2>
+                <div class="text-block">
+                    <p>愛車のメンテナンス、カスタム、ラプター塗装など、お気軽にご相談ください。</p>
+                </div>
                 <a href="#contact" class="contact-btn">ご予約・ご相談</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container"><p>&copy; 2026 Grow Auto Works.</p></div>
+        <div class="container">
+            <p>&copy; 2026 Grow Auto Works. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
+        // ページ読み込み時に強制的にトップへ（キャッシュによる途中開始を防止）
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         document.addEventListener('DOMContentLoaded', function() {
             const sideMenu = document.getElementById('sideMenu');
             const hamburgerBtn = document.getElementById('hamburgerBtn');
             const mobileNav = document.getElementById('mobileNav');
             const heroSection = document.querySelector('.hero');
 
-            // 1. スクロール監視（メニューの出現/消去）
+            // スクロール監視
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) {
@@ -319,17 +311,14 @@
             }, { threshold: 0.1 });
             observer.observe(heroSection);
 
-            // 2. ハンバーガー開閉ロジック
+            // ハンバーガー開閉
             const toggleMenu = () => {
                 hamburgerBtn.classList.toggle('is-open');
                 mobileNav.classList.toggle('is-open');
-                // メニュー開いている間は背面スクロール禁止
                 document.body.style.overflow = mobileNav.classList.contains('is-open') ? 'hidden' : '';
             };
 
             hamburgerBtn.addEventListener('click', toggleMenu);
-
-            // 3. リンククリック時に閉じる
             mobileNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', toggleMenu);
             });
